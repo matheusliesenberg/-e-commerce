@@ -4,31 +4,30 @@
   <meta charset="UTF-8">
   <title>Pokémon - Líderes de Ginásio</title>
 
-  <!-- VUE CDN -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-  <!-- CSS externo -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="app" class="container">
     <h1>Líderes de Ginásio Pokémon</h1>
 
-    <!-- TOTAL DO CARRINHO NO TOPO -->
     <div class="total-carrinho">
       Total no Carrinho: <strong>R$ {{ totalCarrinho.toFixed(2) }}</strong>
     </div>
 
-    <!-- LISTA DE CARDS -->
     <div class="card-container">
       <div class="card" v-for="personagem in personagens" :key="personagem.nome" :class="{ selecionado: personagem.selecionado }">
+
         <img :src="personagem.imagem" :alt="personagem.nome">
         <h2>{{ personagem.nome }}</h2>
         <p>Tipo: {{ personagem.tipo }}</p>
         <p>Preço: R$ {{ personagem.preco.toFixed(2) }}</p>
+
         <button @click="toggleSelecionado(personagem)">
           {{ personagem.selecionado ? "Remover do Carrinho" : "Adicionar ao Carrinho" }}
         </button>
+
       </div>
     </div>
   </div>
